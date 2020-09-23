@@ -35,6 +35,12 @@ const development = {
   mongoPath: 'mongodb://localhost/jaivik_development',
   redisURL:
     'redis://h:p7351bb546d4ea0146ca0797794bbd553c0e9d603499044b3c871105b0ac62229@ec2-54-80-170-250.compute-1.amazonaws.com:23779',
+  aws: {
+    AWS_ID: '',
+    AWS_SECRET: '',
+    AWS_BUCKET_NAME: '',
+    AWS_BUCKET_REGION: '',
+  },
 };
 
 const production = {
@@ -61,6 +67,12 @@ const production = {
   },
   mongoPath: `mongodb+srv://${process.env.JAIVIK_MONGO_USERID}:${process.env.JAIVIK_MONGO_PASSWORD}@cluster0.cmbhb.mongodb.net/${process.env.JAIVIK_DB_NAME}?retryWrites=true&w=majority`,
   redisURL: process.env.REDIS_URL,
+  aws: {
+    AWS_ID: process.env.AWS_ID,
+    AWS_SECRET: process.env.AWS_SECRET,
+    AWS_BUCKET_NAME: process.env.AWS_BUCKET_NAME,
+    AWS_BUCKET_REGION: process.env.AWS_BUCKET_REGION,
+  },
 };
 
 module.exports =

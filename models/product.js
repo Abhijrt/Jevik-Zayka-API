@@ -5,7 +5,7 @@ const PRODUCT_PATH = path.join('/uploads/products/product_image');
 
 const productSchema = new mongoose.Schema(
   {
-    product_name: {
+    title: {
       type: String,
       required: true,
     },
@@ -49,21 +49,6 @@ const productSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-
-let storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, '..', PRODUCT_PATH));
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now());
-  },
-});
-
-//static methods
-productSchema.statics.uploadProductImage = multer({ storage: storage }).single(
-  'product_image'
-);
-productSchema.statics.productPath = PRODUCT_PATH;
 
 if (!productSchema.options.toObject) productSchema.options.toObject = {};
 
